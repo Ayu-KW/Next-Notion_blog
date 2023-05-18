@@ -19,6 +19,7 @@ export default function Home({ allPosts }: { allPosts: any }) {
         <title>Next.jsとNotionAPIで作成したブログ</title>
         <meta name="description" content="" />
       </Head>
+      <div>{allPosts}</div>
     </div>
   );
 }

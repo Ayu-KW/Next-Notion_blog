@@ -18,6 +18,7 @@ export default function Home({ allPosts }: { allPosts: any }) {
       <Head>
         <title>Next.jsとNotionAPIで作成したブログ</title>
         <meta name="description" content="" />
+        <link rel="icon" href="/favicon.ico" />
       </Head>
     </div>
   );
