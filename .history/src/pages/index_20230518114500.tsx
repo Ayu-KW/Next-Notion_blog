@@ -5,14 +5,12 @@ export const getStaticProps = async () => {
   const allPosts = await getAllPosts();
   return {
     props: {
-      allPosts,
+      allPosts: allPosts,
     },
-    revalidate: 60,
   };
 };
 
-export default function Home({ allPosts }: { allPosts: any }) {
-  console.log(allPosts);
+export default function Home() {
   return (
     <div>
       <Head>

@@ -11,7 +11,11 @@ export const getStaticProps = async () => {
   };
 };
 
-export default function Home({ allPosts }: { allPosts: any }) {
+type HomeProps = {
+  allPosts: [];
+};
+
+export default function Home<Array<HomeProps>>({ allPosts }) {
   console.log(allPosts);
   return (
     <div>

@@ -7,12 +7,11 @@ export const getStaticProps = async () => {
     props: {
       allPosts,
     },
-    revalidate: 60,
+    revalidate:
   };
 };
 
-export default function Home({ allPosts }: { allPosts: any }) {
-  console.log(allPosts);
+export default function Home() {
   return (
     <div>
       <Head>

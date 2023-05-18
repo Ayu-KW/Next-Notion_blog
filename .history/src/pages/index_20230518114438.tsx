@@ -2,17 +2,10 @@ import Head from "next/head";
 import { getAllPosts } from "../../lib/notionAPI";
 
 export const getStaticProps = async () => {
-  const allPosts = await getAllPosts();
-  return {
-    props: {
-      allPosts,
-    },
-    revalidate: 60,
-  };
+  const allPosts = await getAllPosts;
 };
 
-export default function Home({ allPosts }: { allPosts: any }) {
-  console.log(allPosts);
+export default function Home() {
   return (
     <div>
       <Head>
