@@ -20,7 +20,6 @@ const getPageMetaData = (post: any) => {
     const allTags = tags.map((tag: any) => {
       return tag.name;
     });
-    return allTags;
   };
 
   return {

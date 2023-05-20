@@ -26,6 +26,7 @@ export default function Home({ allPosts }: any) {
         {allPosts.map((post: any) => (
           <div className="mx-4">
             <SinglePost
+              id={post.id}
               title={post.title}
               description={post.description}
               date={post.date}

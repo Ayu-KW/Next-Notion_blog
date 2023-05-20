@@ -20,7 +20,6 @@ const getPageMetaData = (post: any) => {
     const allTags = tags.map((tag: any) => {
       return tag.name;
     });
-    return allTags;
   };
 
   return {
@@ -29,6 +28,6 @@ const getPageMetaData = (post: any) => {
     description: post.properties.Description.rich_text[0].plain_text,
     date: post.properties.Date.date.start,
     slug: post.properties.Slug.rich_text[0].plain_text,
-    tags: getTags(post.properties.Tags.multi_select),
+    tags: post.properties.Tags.multi_select,
   };
 };

@@ -16,7 +16,7 @@ export const getStaticProps = async () => {
 export default function Home({ allPosts }: any) {
   console.log(allPosts);
   return (
-    <div className="container h-full w-full mx-auto font-serif">
+    <div className="container h-full w-full mx-auto font-mono">
       <Head>
         <title>Next&Notion Blog</title>
         <meta name="description" content="Next.jsとNotionAPIで作成したブログです" />

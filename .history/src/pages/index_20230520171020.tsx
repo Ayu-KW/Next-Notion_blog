@@ -1,4 +1,5 @@
 /* eslint-disable react/jsx-key */
+import "tailwindcss/tailwind.css";
 import Head from "next/head";
 import { getAllPosts } from "../../lib/notionAPI";
 import { SinglePost } from "../../components/Post/SinglePost";
