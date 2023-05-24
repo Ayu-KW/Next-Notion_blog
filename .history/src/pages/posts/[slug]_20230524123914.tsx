@@ -3,9 +3,14 @@ import { getAllPosts, getSinglePost } from "../../../lib/notionAPI";
 
 export const getStaticPaths = async () => {
   const allPosts = await getAllPosts();
-  const paths = allPosts.map(({ slug }) => ({ params: { slug } }));
+  const paths = allPosts.map();
   return {
-    paths,
+    paths: [
+      { params: { slug: "post-1" } },
+      { params: { slug: "post-2" } },
+      { params: { slug: "post-3" } },
+      { params: { slug: "post-4" } },
+    ],
     fallback: "blocking",
   };
 };

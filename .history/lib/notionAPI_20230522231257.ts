@@ -33,22 +33,9 @@ const getPageMetaData = (post: any) => {
   };
 };
 
-export const getSinglePost = async (slug: any) => {
+export const getSinglePost = async (slug) => {
   const response = await notion.databases.query({
     database_id: process.env.NOTION_DATABASE_ID!,
-    filter: {
-      property: "Slug",
-      formula: {
-        string: {
-          equals: slug,
-        },
-      },
-    },
+    page_size: 100,
   });
-  const page = response.results[0];
-  const metadata = getPageMetaData(page);
-  console.log(metadata);
-  return {
-    metadata,
-  };
 };

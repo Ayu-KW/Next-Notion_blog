@@ -39,16 +39,8 @@ export const getSinglePost = async (slug: any) => {
     filter: {
       property: "Slug",
       formula: {
-        string: {
-          equals: slug,
-        },
+        string: {},
       },
     },
   });
-  const page = response.results[0];
-  const metadata = getPageMetaData(page);
-  console.log(metadata);
-  return {
-    metadata,
-  };
 };

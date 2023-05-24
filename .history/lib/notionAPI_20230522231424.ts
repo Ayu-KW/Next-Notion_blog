@@ -38,17 +38,7 @@ export const getSinglePost = async (slug: any) => {
     database_id: process.env.NOTION_DATABASE_ID!,
     filter: {
       property: "Slug",
-      formula: {
-        string: {
-          equals: slug,
-        },
-      },
+      formula: {},
     },
   });
-  const page = response.results[0];
-  const metadata = getPageMetaData(page);
-  console.log(metadata);
-  return {
-    metadata,
-  };
 };

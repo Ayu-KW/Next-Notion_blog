@@ -1,11 +1,15 @@
 import React from "react";
-import { getAllPosts, getSinglePost } from "../../../lib/notionAPI";
+import { getSinglePost } from "../../../lib/notionAPI";
 
 export const getStaticPaths = async () => {
-  const allPosts = await getAllPosts();
-  const paths = allPosts.map(({ slug }) => ({ params: { slug } }));
   return {
-    paths,
+    // paths（パス）の一覧
+    // paramsのslugとして、NotionのSlugプロパティを記述
+    paths: [
+      { params: { slug: "post-1" } },
+      { params: { slug: "post-2" } },
+      { params: { slug: "post-3" } },
+    ],
     fallback: "blocking",
   };
 };
