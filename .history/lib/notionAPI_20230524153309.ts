@@ -5,6 +5,8 @@ const notion = new Client({
   auth: process.env.NOTION_TOKEN,
 });
 
+// インスタンス化（公式サイトを元に作成）
+// notionClientに対応する値として、notion関数を設定
 const n2m = new NotionToMarkdown({ notionClient: notion });
 
 export const getAllPosts = async () => {
@@ -50,8 +52,13 @@ export const getSinglePost = async (slug: any) => {
   });
   const page = response.results[0];
   const metadata = getPageMetaData(page);
+  // console.log(metadata);
+  // pageのidを指定することでブロック要素が取得できる（マークダウン形式）
   const mdBlocks = await n2m.pageToMarkdown(page.id);
+  // string（文字型）に変換するようにする
   const mdString = n2m.toMarkdownString(mdBlocks);
+  // 確認のためにログに出力
+  console.log(mdString);
   return {
     metadata,
     markdown: mdString,

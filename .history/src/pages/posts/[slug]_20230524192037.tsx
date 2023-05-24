@@ -22,6 +22,7 @@ export const getStaticProps = async ({ params }: any) => {
 };
 
 const Post = ({ post }: any) => {
+  console.log(post);
   return (
     <section className="container lg:px-2 px-5 lg:w-2/5 mx-auto mt-20">
       <h2 className="w-full text-2xl font-medium">{post.metadata.title}</h2>
@@ -39,9 +40,7 @@ const Post = ({ post }: any) => {
           </p>
         ))}
       </div>
-      <div className="mt-10 font-medium">
-        <ReactMarkdown>{post.markdown.parent}</ReactMarkdown>
-      </div>
+      <div className="mt-10 font-medium">{post}</div>
     </section>
   );
 };

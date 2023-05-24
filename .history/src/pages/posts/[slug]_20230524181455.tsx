@@ -29,7 +29,7 @@ const Post = ({ post }: any) => {
       <time dateTime={post.metadata.date} className="text-gray-400">
         {post.metadata.date}
       </time>
-      <div className="flex gap-1">
+      <div className="flex gap-4">
         {post.metadata.tags.map((tag: string, index: number) => (
           <p
             key={index}
@@ -40,7 +40,7 @@ const Post = ({ post }: any) => {
         ))}
       </div>
       <div className="mt-10 font-medium">
-        <ReactMarkdown>{post.markdown.parent}</ReactMarkdown>
+        <ReactMarkdown>{post.markdown.toString()}</ReactMarkdown>
       </div>
     </section>
   );

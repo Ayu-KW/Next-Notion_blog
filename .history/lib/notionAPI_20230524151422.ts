@@ -5,6 +5,8 @@ const notion = new Client({
   auth: process.env.NOTION_TOKEN,
 });
 
+// インスタンス化（公式サイトを元に作成）
+// notionClientに対応する値として、notion関数を設定
 const n2m = new NotionToMarkdown({ notionClient: notion });
 
 export const getAllPosts = async () => {
@@ -50,10 +52,10 @@ export const getSinglePost = async (slug: any) => {
   });
   const page = response.results[0];
   const metadata = getPageMetaData(page);
-  const mdBlocks = await n2m.pageToMarkdown(page.id);
-  const mdString = n2m.toMarkdownString(mdBlocks);
+  // console.log(metadata);
+  //
+  const mbBlocks = await n2m.pageToMarkdown(page.id);
   return {
     metadata,
-    markdown: mdString,
   };
 };

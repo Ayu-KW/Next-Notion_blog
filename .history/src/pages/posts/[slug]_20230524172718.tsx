@@ -40,7 +40,7 @@ const Post = ({ post }: any) => {
         ))}
       </div>
       <div className="mt-10 font-medium">
-        <ReactMarkdown>{post.markdown.parent}</ReactMarkdown>
+        <ReactMarkdown></ReactMarkdown>
       </div>
     </section>
   );

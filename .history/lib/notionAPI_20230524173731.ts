@@ -54,6 +54,6 @@ export const getSinglePost = async (slug: any) => {
   const mdString = n2m.toMarkdownString(mdBlocks);
   return {
     metadata,
-    markdown: mdString,
+    markdown: mdBlocks,
   };
 };

@@ -39,9 +39,8 @@ const Post = ({ post }: any) => {
           </p>
         ))}
       </div>
-      <div className="mt-10 font-medium">
-        <ReactMarkdown>{post.markdown.parent}</ReactMarkdown>
-      </div>
+      <div className="mt-10 font-medium">{post}</div>
+      console.log(post)
     </section>
   );
 };

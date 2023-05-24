@@ -52,6 +52,7 @@ export const getSinglePost = async (slug: any) => {
   const metadata = getPageMetaData(page);
   const mdBlocks = await n2m.pageToMarkdown(page.id);
   const mdString = n2m.toMarkdownString(mdBlocks);
+  console.log();
   return {
     metadata,
     markdown: mdString,

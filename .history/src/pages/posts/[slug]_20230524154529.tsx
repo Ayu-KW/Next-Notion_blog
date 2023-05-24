@@ -1,6 +1,5 @@
 import React from "react";
 import { getAllPosts, getSinglePost } from "../../../lib/notionAPI";
-import { ReactMarkdown } from "react-markdown/lib/react-markdown";
 
 export const getStaticPaths = async () => {
   const allPosts = await getAllPosts();
@@ -29,19 +28,14 @@ const Post = ({ post }: any) => {
       <time dateTime={post.metadata.date} className="text-gray-400">
         {post.metadata.date}
       </time>
-      <div className="flex gap-1">
-        {post.metadata.tags.map((tag: string, index: number) => (
-          <p
-            key={index}
-            className="bg-teal-600 text-white rounded-xl font-medium mt-2 px-2 inline-block"
-          >
+      <div>
+        {post.metadata.tags.map((tag: any) => (
+          <p className="bg-teal-600 text-white rounded-xl font-medium mt-2 px-2 inline-block">
             {tag}
           </p>
         ))}
       </div>
-      <div className="mt-10 font-medium">
-        <ReactMarkdown>{post.markdown.parent}</ReactMarkdown>
-      </div>
+      <div className="mt-10 font-medium">記事の中身</div>
     </section>
   );
 };

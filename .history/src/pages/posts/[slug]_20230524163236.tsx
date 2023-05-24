@@ -1,6 +1,5 @@
 import React from "react";
 import { getAllPosts, getSinglePost } from "../../../lib/notionAPI";
-import { ReactMarkdown } from "react-markdown/lib/react-markdown";
 
 export const getStaticPaths = async () => {
   const allPosts = await getAllPosts();
@@ -39,9 +38,7 @@ const Post = ({ post }: any) => {
           </p>
         ))}
       </div>
-      <div className="mt-10 font-medium">
-        <ReactMarkdown>{post.markdown.parent}</ReactMarkdown>
-      </div>
+      <div className="mt-10 font-medium">記事の中身</div>
     </section>
   );
 };

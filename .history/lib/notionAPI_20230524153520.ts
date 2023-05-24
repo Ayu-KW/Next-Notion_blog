@@ -50,8 +50,13 @@ export const getSinglePost = async (slug: any) => {
   });
   const page = response.results[0];
   const metadata = getPageMetaData(page);
+  // console.log(metadata);
+  // pageのidを指定することでブロック要素が取得できる（マークダウン形式）
   const mdBlocks = await n2m.pageToMarkdown(page.id);
+  // string（文字型）に変換するようにする
   const mdString = n2m.toMarkdownString(mdBlocks);
+  // 確認のためにログに出力
+  console.log(mdString);
   return {
     metadata,
     markdown: mdString,
