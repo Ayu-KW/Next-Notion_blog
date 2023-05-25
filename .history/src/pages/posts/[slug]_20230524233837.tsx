@@ -4,7 +4,6 @@ import { getAllPosts, getSinglePost } from "../../../lib/notionAPI";
 import { ReactMarkdown } from "react-markdown/lib/react-markdown";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { vsDark } from "react-syntax-highlighter/dist/cjs/styles/prism";
-import Link from "next/link";
 
 export const getStaticPaths = async () => {
   const allPosts = await getAllPosts();
@@ -46,13 +45,17 @@ const Post = ({ post }: any) => {
       <div className="mt-10 font-medium">
         <ReactMarkdown
           children={post.markdown.parent}
+          // 参考サイトにある（SyntaxHighlight）の項目からコピーして編集する
           components={{
+            // 「code」タグで書かれたものの内容を判別する
             code({ node, inline, className, children, ...props }) {
               const match = /language-(\w+)/.exec(className || "");
+              // 条件が合うものに関しては「SyntaxHighlighter」というコンポーネントで囲い出力
               return !inline && match ? (
                 <SyntaxHighlighter
                   {...props}
                   children={String(children).replace(/\n$/, "")}
+                  // styleの値を変更すると見た目が変わる（既存で用意されているスタイルがいくつかある）
                   style={vsDark}
                   language={match[1]}
                   PreTag="div"
@@ -66,9 +69,6 @@ const Post = ({ post }: any) => {
           }}
         />
       </div>
-      <Link href="/" className="mt-3 mb-20 inline-block bg-teal-600 px-3 rounded-md ">
-        <p className="text-white">← ホームに戻る</p>
-      </Link>
     </section>
   );
 };
