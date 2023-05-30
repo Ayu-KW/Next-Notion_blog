@@ -3,10 +3,10 @@ import Head from "next/head";
 import { getAllPosts, getPostsFourTopPage } from "../../lib/notionAPI";
 import { SinglePost } from "../../components/Post/SinglePost";
 import { GetStaticProps } from "next";
-import Link from "next/link";
 
+// 型を設定（GetStaticProps：
 export const getStaticProps: GetStaticProps = async () => {
-  const fourPosts = await getPostsFourTopPage(4);
+  const fourPosts = await getPostsFourTopPage();
   return {
     props: {
       fourPosts,
@@ -32,16 +32,9 @@ export default function Home({ fourPosts }: any) {
               date={post.date}
               tags={post.tags}
               slug={post.slug}
-              isPaginationPage={false}
             />
           </div>
         ))}
-        <Link
-          href="/posts/page/1"
-          className="mb-6 lg:w-1/2 mx-auto px-5 block text-right text-lg font-bold "
-        >
-          …もっと見る
-        </Link>
       </main>
     </div>
   );

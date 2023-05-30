@@ -1,6 +1,5 @@
 import { Client } from "@notionhq/client";
 import { NotionToMarkdown } from "notion-to-md";
-import { NUMBER_OF_POSTS_PER_PAGE } from "../constants/constants";
 
 const notion = new Client({
   auth: process.env.NOTION_TOKEN,
@@ -69,7 +68,6 @@ export const getPostsFourTopPage = async (pageSize: number) => {
 // ページ番号に応じた記事を取得
 export const getPostsByPage = async (page: number) => {
   const allPosts = await getAllPosts();
-  const startIndex = (page - 1) * NUMBER_OF_POSTS_PER_PAGE;
-  const endIndex = startIndex + NUMBER_OF_POSTS_PER_PAGE;
-  return allPosts.slice(startIndex, endIndex);
+  const startIndex=
+  return allPosts.slice(0, 4);
 };

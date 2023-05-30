@@ -70,6 +70,6 @@ export const getPostsFourTopPage = async (pageSize: number) => {
 export const getPostsByPage = async (page: number) => {
   const allPosts = await getAllPosts();
   const startIndex = (page - 1) * NUMBER_OF_POSTS_PER_PAGE;
-  const endIndex = startIndex + NUMBER_OF_POSTS_PER_PAGE;
+  const endIndex = page + NUMBER_OF_POSTS_PER_PAGE;
   return allPosts.slice(startIndex, endIndex);
 };

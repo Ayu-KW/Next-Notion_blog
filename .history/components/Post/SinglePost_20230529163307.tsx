@@ -27,7 +27,7 @@ export const SinglePost = (props: Props) => {
               </time>
               <div className="flex gap-1">
                 {tags.map((tag, index) => (
-                  <p key={index} className="text-white bg-sky-700 rounded-xl px-2 font-medium">
+                  <p key={index} className="text-white bg-blue-600 rounded-xl px-2 font-medium">
                     {tag}
                   </p>
                 ))}
