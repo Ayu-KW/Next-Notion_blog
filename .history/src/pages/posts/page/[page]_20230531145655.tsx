@@ -31,7 +31,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
   };
 };
 
-const BlogPageList = ({ postsByPage, numberOfpage }: any) => {
+const BlogPageList = ({ postsByPage }: any) => {
   return (
     <div className="container h-full w-full mx-auto font-serif">
       <Head>

@@ -31,7 +31,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
   };
 };
 
-const BlogPageList = ({ postsByPage, numberOfpage }: any) => {
+const BlogTagPageList = ({ postsByPage, numberOfpage }: any) => {
   return (
     <div className="container h-full w-full mx-auto font-serif">
       <Head>
@@ -58,4 +58,4 @@ const BlogPageList = ({ postsByPage, numberOfpage }: any) => {
   );
 };
 
-export default BlogPageList;
+export default BlogTagPageList;

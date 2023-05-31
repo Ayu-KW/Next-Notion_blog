@@ -4,7 +4,7 @@ import { GetStaticPaths, GetStaticProps } from "next";
 import { getNumberOfPages, getPostsFourTopPage } from "../../../../lib/notionAPI";
 import { SinglePost } from "../../../../components/Post/SinglePost";
 import { getPostsByPage } from "../../../../lib/notionAPI";
-import { Pagination } from "../../../../components/Pagination/Pagination";
+import { Pagination } from "../../../../../components/Pagination/Pagination";
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const numberOfpage = await getNumberOfPages();
@@ -31,7 +31,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
   };
 };
 
-const BlogPageList = ({ postsByPage, numberOfpage }: any) => {
+const BlogTagPageList = ({ postsByPage, numberOfpage }: any) => {
   return (
     <div className="container h-full w-full mx-auto font-serif">
       <Head>
@@ -58,4 +58,4 @@ const BlogPageList = ({ postsByPage, numberOfpage }: any) => {
   );
 };
 
-export default BlogPageList;
+export default BlogTagPageList;

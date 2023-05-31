@@ -4,16 +4,13 @@ import { GetStaticPaths, GetStaticProps } from "next";
 import { getNumberOfPages, getPostsFourTopPage } from "../../../../lib/notionAPI";
 import { SinglePost } from "../../../../components/Post/SinglePost";
 import { getPostsByPage } from "../../../../lib/notionAPI";
-import { Pagination } from "../../../../components/Pagination/Pagination";
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const numberOfpage = await getNumberOfPages();
   let params = [];
-  for (let i = 1; 1 <= numberOfpage; i++) {
-    params.push({ params: { page: i.toString() } });
-  }
+  for (let i = 1; 1 <= numberOfpage; i++) {}
   return {
-    paths: params,
+    paths: [{ params: { page: "1" } }, { params: { page: "2" } }],
     fallback: "blocking",
   };
 };
@@ -21,17 +18,15 @@ export const getStaticPaths: GetStaticPaths = async () => {
 export const getStaticProps: GetStaticProps = async (context) => {
   const currentPage = context.params?.page || "";
   const postsByPage = await getPostsByPage(parseInt(currentPage.toString(), 10));
-  const numberOfpage = await getNumberOfPages();
   return {
     props: {
       postsByPage,
-      numberOfpage,
     },
     revalidate: 60,
   };
 };
 
-const BlogPageList = ({ postsByPage, numberOfpage }: any) => {
+const BlogPageList = ({ postsByPage }: any) => {
   return (
     <div className="container h-full w-full mx-auto font-serif">
       <Head>
@@ -52,7 +47,6 @@ const BlogPageList = ({ postsByPage, numberOfpage }: any) => {
             />
           </div>
         ))}
-        <Pagination numberOfpage={numberOfpage} />
       </main>
     </div>
   );
